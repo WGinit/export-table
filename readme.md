@@ -49,5 +49,5 @@ export2excel(el, 'test')   // 这种适合对table数据二次自定义后再导
 ```
 
 ### ToDo
-[x] 增加pdf、csv、doc等多种文件导出
-[x] 增加Typescript
+- [ ] 增加pdf、csv、doc等多种文件导出
+- [ ] 增加Typescript
