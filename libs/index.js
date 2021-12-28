@@ -3,28 +3,25 @@ import { isString, isObjectElement } from './utils/util';
 import { saveAs } from 'file-saver';
 import { getXlsTpl } from './xls';
 
-module.exports = function (tableEl, filename, type) {
+module.exports = function ({el = null, fileName = '表格', type = 'xls'}) {
 
-    if (!tableEl) {
+    if (!el) {
         throw new Error('table 来源不能为空');
     }
-
-    if (!type) {
-        type = 'xls'
-    }
-
     const doc = document;
     let table = null
 
-    if (isString(tableEl)) {
-        table = doc.getElementById(tableEl);
+    if (isString(el)) {
+        table = doc.getElementById(el);
     }
 
-    if (isObjectElement(tableEl)) {
-        table = tableEl
+    if (isObjectElement(el)) {
+        table = el
     }
 
-    let tableData = table.outerHTML.replace(/<(\w+) (.+?)>/g, (m, p1) => `<${p1}>`).replace('<table>', '<table border>')
+    // let tableData = table.outerHTML.replace(/<(\w+) (.+?)>/g, (m, p1) => `<${p1}>`).replace('<table>', '<table border>')
+
+    let tableData = table.outerHTML.replace('<table>', '<table border>')
 
     let charset = doc.characterSet;
 
@@ -42,7 +39,7 @@ module.exports = function (tableEl, filename, type) {
         let data = typeFunc(tableData, charset, type);
         saveAs(new Blob([data], {
             type: uri[type]
-        }), filename + '.' + type);
+        }), fileName + '.' + type);
     } else {
         // throw new Error('the supported types are: json, txt, csv, xml, doc, xls, image, pdf');
         throw new Error('目前仅支持导出xls文件');

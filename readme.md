@@ -20,13 +20,26 @@ yarn dev
 yarn build
 
 ```
-### 方法
-```javascript
+### methods
+#### export2excel
 
+```javascript
 // tableEl: 可以是table的id，也可以是table的htmltableelement， fileName为导出的excel文件名
-export2excel(tableEl, fileName)
+export2excel({
+    el: 'export-table',
+    type: 'xls',
+    fileName: ''
+})
 
 ```
+
+#### options
+| 参数 | 类型 | 是否必填 | 说明|
+|:---:|:---:|:---:| :---: |
+| el | string 或 element| Y | table的id 或 table的htmltableelement |
+| type | string | N | 导出的文件类型，默认xls，目前仅支持xls |
+| fileName | string | N | 导出的excel名称 |
+
 
 ### Demo
 ```javascript
@@ -41,10 +54,16 @@ const export2excel = require('table-export-file')
 </table>`
 
 // 导出
-export2excel('export', 'test')
+export2excel({
+    el: 'export',
+    fileName: 'test'
+})
 或者
 const el = document.getElementById('export')
-export2excel(el, 'test')   // 这种适合对table数据二次自定义后再导出
+export2excel({
+    el,
+    fileName: 'test'
+})   // 这种适合对table数据二次自定义后再导出
 
 ```
 
