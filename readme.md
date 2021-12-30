@@ -2,7 +2,7 @@
 
 方便将table表格数据导出为Excel，所见即所得。
 
-![](https://github.com/WGinit/Assets/blob/master/images/memo/121719554753_01.png)
+![预览图](https://github.com/WGinit/Assets/blob/master/images/memo/121719554753_01.png)
 
 ### 本地运行
 
@@ -31,12 +31,12 @@ export2excel(options)
 ```
 
 #### options
-| 参数 | 类型 | 是否必填 | 说明|
-|:---:|:---:|:---:| :---: |
-| el | string 或 element| Y | table的id 或 table的htmltableelement |
-| type | string | N | 导出的文件类型，默认xls，目前仅支持xls |
-| fileName | string | N | 导出的excel名称 |
-| datas | array | N | API接口返回的数据的导出 |
+| 参数 | 类型 | 说明|
+|:---:|:---:|:---: |
+| el | string 或 element| table的id 或 table的htmltableelement |
+| type | string |  导出的文件类型，默认xls，目前仅支持xls |
+| fileName | string | 导出的excel名称 |
+| datas | array |  API接口返回的数据的导出 |
 
 datas 结构:
 ```javascript
