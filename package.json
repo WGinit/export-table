@@ -8,12 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
   },
-  "keywords": [],
+  "keywords": ["excel", "table2excel", "table-export"],
   "author": "wginit",
   "license": "ISC",
   "dependencies": {
     "file-saver": "^2.0.5",
-    "xlsx-style": "^0.8.13"
+    "js-export-excel": "^1.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

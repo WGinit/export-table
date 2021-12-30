@@ -1,9 +1,18 @@
 
 import { isString, isObjectElement } from './utils/util';
 import { saveAs } from 'file-saver';
-import { getXlsTpl } from './xls';
+import { getXlsTpl, exportDataXls } from './xls';
 
-module.exports = function ({el = null, fileName = '表格', type = 'xls'}) {
+module.exports = function ({el = null, fileName = '表格', type = 'xls', datas = []}) {
+
+    // 直接导出后台接口数据
+    if (datas.length) {
+        exportDataXls({
+            fileName,
+            datas
+        })
+        return
+    }
 
     if (!el) {
         throw new Error('table 来源不能为空');
